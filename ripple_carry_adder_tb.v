@@ -43,12 +43,37 @@ module ripple_carry_adder_tb;
     // Instantiate the Unit Under Test (UUT)
     // -------------------------------------------------------
        // OUTSIDE LOCAL, INSIDE MODULE
+    reg[15:0] A_16;
+    reg[15:0] B_16;
+    wire [15:0] result_16;
+    wire carryout_16;
+
+    reg[31:0] A_32;
+    reg[31:0] B_32;
+    wire [31:0] result_32;
+    wire carryout_32;
+
+    reg[63:0] A_64;
+    reg[63:0] B_64;
+    wire [63:0] result_64;
+    wire carryout_64;
+
     ripple_carry_adder #(.NUMBITS(8)) BitAdder8( .A(A),
                                             .B(B),
                                             .result(result),
                                             .carryout(carryout));
-
-
+    ripple_carry_adder #(.NUMBITS(16)) BitAdder16( .A(A_16),
+                                            .B(B_16),
+                                            .result(result_16),
+                                            .carryout(carryout_16));
+    ripple_carry_adder #(.NUMBITS(32)) BitAdder32( .A(A_32),
+                                            .B(B_32),
+                                            .result(result_32),
+                                            .carryout(carryout_32));
+    ripple_carry_adder #(.NUMBITS(64)) BitAdder64( .A(A_64),
+                                            .B(B_64),
+                                            .result(result_64),
+                                            .carryout(carryout_64));                                    
     // -------------------------------------------------------
     // Instantiate the 16-bit Unit Under Test (UUT)
     // -------------------------------------------------------
