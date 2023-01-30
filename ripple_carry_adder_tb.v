@@ -43,55 +43,37 @@ module ripple_carry_adder_tb;
     // Instantiate the Unit Under Test (UUT)
     // -------------------------------------------------------
        // OUTSIDE LOCAL, INSIDE MODULE
-    ripple_carry_adder #(.NUMBITS(8)) BitAdder8( .clk(clk),
-                                            .reset(reset),
-                                            .A(A),
+    ripple_carry_adder #(.NUMBITS(8)) BitAdder8( .A(A),
                                             .B(B),
                                             .result(result),
-                                            .expected_result(expected_result),
                                             .carryout(carryout));
 
 
     // -------------------------------------------------------
     // Instantiate the 16-bit Unit Under Test (UUT)
     // -------------------------------------------------------
-    ripple_carry_adder #(.NUMBITS(16)) BitAdder8( .clk(clk),
-                                            .reset(reset),
-                                            .A(A),
-                                            .B(B),
-                                            .result(result),
-                                            .expected_result(expected_result),
-                                            .carryout(carryout);
+    /*reg[NUMBITS-1:0] A_16;
+    reg[NUMBITS-1:0] B_16;
+    wire [NUMBITS-1:0] result_16;
+    wire carryout_16;
 
+    ripple_carry_adder #(.NUMBITS(16)) BitAdder16(.A(A_16), .B(B_16), .result(result_16), .carryout(carryout_16);
     //
     // -------------------------------------------------------
     // Instantiate the N-bit Unit Under Test (UUT)
     // -------------------------------------------------------
 
-    ripple_carry_adder #(.NUMBITS(32)) BitAdder8( .clk(clk),
-                                            .reset(reset),
-                                            .A(A),
-                                            .B(B),
-                                            .result(result),
-                                            .expected_result(expected_result),
-                                            .carryout(carryout));
+    ripple_carry_adder #(.NUMBITS(32)) BitAdder32( .A(A_32),
+                                            .B(B_32),
+                                            .result(result_32),
+                                            .carryout(carryout_32));
 
-    ripple_carry_adder #(.NUMBITS(64)) BitAdder8( .clk(clk),
-                                            .reset(reset),
-                                            .A(A),
-                                            .B(B),
-                                            .result(result),
-                                            .expected_result(expected_result),
-                                            .carryout(carryout));
+    ripple_carry_adder #(.NUMBITS(64)) BitAdder64(.A(A_64),
+                                            .B(B_64),
+                                            .result(result_64),
+                                            .carryout(carryout_64));                                       
+    */
 
-    ripple_carry_adder #(.NUMBITS(128)) BitAdder8( .clk(clk),
-                                            .reset(reset),
-                                            .A(A),
-                                            .B(B),
-                                            .result(result),
-                                            .expected_result(expected_result),
-                                            .carryout(carryout));                                        
-    
     initial begin 
     
         clk = 0; reset = 1; #50; 
@@ -196,9 +178,9 @@ module ripple_carry_adder_tb;
         totalTests = totalTests + 1;
         //the result should be 0, with a carryout of 1
         $write("\tTest Case 2.1: 65535 + 1 = 65536, c_out = 1 ... ");
-        A = 8'hFFFF;
-        B = 8'h01;
-        expected_result = 8'h00;
+        A = 16'hFFFF;
+        B = 16'h01;
+        expected_result = 16'h00;
 
         #100; // Wait 
         if (expected_result !== result || carryout !== 1'b1) begin
@@ -212,9 +194,9 @@ module ripple_carry_adder_tb;
         totalTests = totalTests + 1;
         //the result should be 0, with a carryout of 1
         $write("\tTest Case 2.2: 4294967295 + 1 = 4294967296, c_out = 1 ... ");
-        A = 8'hFFFFFFFF;
-        B = 8'h01;
-        expected_result = 8'h00;
+        A = 32'hFFFFFFFF;
+        B = 32'h01;
+        expected_result = 32'h00;
 
         #100; // Wait 
         if (expected_result !== result || carryout !== 1'b1) begin
@@ -228,9 +210,9 @@ module ripple_carry_adder_tb;
         totalTests = totalTests + 1;
         //the result should be 0, with a carryout of 1
         $write("\tTest Case 2.3: 18446744073709551615 + 1 = 18446744073709551616, c_out = 1 ... ");
-        A = 8'hFFFFFFFFFFFFFFFF;
-        B = 8'h01;
-        expected_result = 8'h00;
+        A = 64'hFFFFFFFFFFFFFFFF;
+        B = 64'h01;
+        expected_result = 64'h00;
 
         #100; // Wait 
         if (expected_result !== result || carryout !== 1'b1) begin
