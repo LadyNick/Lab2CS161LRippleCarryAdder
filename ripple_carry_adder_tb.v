@@ -53,21 +53,25 @@ module ripple_carry_adder_tb;
     reg[15:0] A_16;
     reg[15:0] B_16;
     wire [15:0] result_16;
+    reg [15:0] expected_result_16;
     wire carryout_16;
 
     reg[31:0] A_32;
     reg[31:0] B_32;
     wire [31:0] result_32;
+    reg [31:0] expected_result_32;
     wire carryout_32;
 
     reg[63:0] A_64;
     reg[63:0] B_64;
     wire [63:0] result_64;
+    reg [63:0] expected_result_64;
     wire carryout_64;
 
     reg[127:0] A_128;
     reg[127:0] B_128;
     wire [127:0] result_128;
+    reg [127:0] expected_result_128;
     wire carryout_128;
 
     ripple_carry_adder #(.NUMBITS(16)) BitAdder16( .A(A_16),
@@ -206,12 +210,12 @@ module ripple_carry_adder_tb;
         totalTests = totalTests + 1;
         //the result should be 0, with a carryout of 1
         $write("\tTest Case 2.1: 65535 + 1 = 65536, c_out = 1 ... ");
-        A = 16'hFFFF;
-        B = 16'h01;
-        expected_result = 16'h00;
+        A_16 = 16'hFFFF;
+        B_16 = 16'h01;
+        expected_result_16 = 16'h00;
 
         #100; // Wait 
-        if (expected_result !== result || carryout !== 1'b1) begin
+        if (expected_result_16 !== result_16 || carryout_16 !== 1'b1) begin
             $write("failed\n");
             failedTests = failedTests + 1;
         end else begin
@@ -222,12 +226,12 @@ module ripple_carry_adder_tb;
         totalTests = totalTests + 1;
         //the result should be 0, with a carryout of 1
         $write("\tTest Case 2.2: 4294967295 + 1 = 4294967296, c_out = 1 ... ");
-        A = 32'hFFFFFFFF;
-        B = 32'h01;
-        expected_result = 32'h00;
+        A_32 = 32'hFFFFFFFF;
+        B_32 = 32'h01;
+        expected_result_32 = 32'h00;
 
         #100; // Wait 
-        if (expected_result !== result || carryout !== 1'b1) begin
+        if (expected_result_32 !== result_32 || carryout_32 !== 1'b1) begin
             $write("failed\n");
             failedTests = failedTests + 1;
         end else begin
@@ -238,12 +242,12 @@ module ripple_carry_adder_tb;
         totalTests = totalTests + 1;
         //the result should be 0, with a carryout of 1
         $write("\tTest Case 2.3: 18446744073709551615 + 1 = 18446744073709551616, c_out = 1 ... ");
-        A = 64'hFFFFFFFFFFFFFFFF;
-        B = 64'h01;
-        expected_result = 64'h00;
+        A_64 = 64'hFFFFFFFFFFFFFFFF;
+        B_64 = 64'h01;
+        expected_result_64 = 64'h00;
 
         #100; // Wait 
-        if (expected_result !== result || carryout !== 1'b1) begin
+        if (expected_result_64 !== result_64 || carryout_64 !== 1'b1) begin
             $write("failed\n");
             failedTests = failedTests + 1;
         end else begin
@@ -254,12 +258,12 @@ module ripple_carry_adder_tb;
         totalTests = totalTests + 1;
         //the result should be 0, with a carryout of 1
         $write("\tTest Case 2.4: 340282366920938463463374607431768211455 + 1 = 340282366920938463463374607431768211456, c_out = 1 ... ");
-        A = 128'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
-        B = 128'h01;
-        expected_result = 128'h00;
+        A_128 = 128'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
+        B_128 = 128'h01;
+        expected_result_128 = 128'h00;
 
         #100; // Wait 
-        if (expected_result !== result || carryout !== 1'b1) begin
+        if (expected_result_128 !== result_128 || carryout_128 !== 1'b1) begin
             $write("failed\n");
             failedTests = failedTests + 1;
         end else begin

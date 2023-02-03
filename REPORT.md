@@ -17,6 +17,6 @@ Testbench Descriptions:
 2.3: 340282366920938463463374607431768211455 + 1 = 340282366920938463463374607431768211456, c_out = 1. This is testing going 1 over the max value for a system of 128 bits adding 128 1's with another binary 1. This results with a 128bit 0 and a carryout of 1.
 
 Waveform Screenshot:
-I guessed that it would take 64 bits for it to fail but I added a testcase for 128 bits in case I was wrong. It looks like it already fails at 16 bits.
+I guessed that it would take 64 bits for it to fail but I added a testcase for 128 bits in case I was wrong. In my testbench the tests for 32, 64, and 128 bits fails but it passes for 16 bits. So, my guess was wrong and it fails at 32. You can see in the waveform that the 16 bit result stays within 100ns, however the 32 bit result goes up to almost 150ns.
 
-![waveform](cs161lab2waveform.png)
+![waveform](cs161lab2waveform.PNG)
