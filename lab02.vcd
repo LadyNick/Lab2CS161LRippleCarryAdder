@@ -1,0 +1,228 @@
+$date
+	Mon Jan 30 06:00:16 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module full_adder $end
+$var wire 1 ! a $end
+$var wire 1 " b $end
+$var wire 1 # c_in $end
+$var wire 3 $ level1 [2:0] $end
+$var wire 1 % c_out_w $end
+$var reg 1 & c_out $end
+$var reg 1 ' s $end
+$scope module and1 $end
+$var wire 2 ( a [1:0] $end
+$var wire 1 ) result $end
+$upscope $end
+$scope module and2 $end
+$var wire 2 * a [1:0] $end
+$var wire 1 + result $end
+$upscope $end
+$scope module and3 $end
+$var wire 2 , a [1:0] $end
+$var wire 1 - result $end
+$upscope $end
+$scope module or1 $end
+$var wire 3 . a [2:0] $end
+$var wire 1 % result $end
+$upscope $end
+$upscope $end
+$scope module ripple_carry_adder_tb $end
+$var wire 64 / result_64 [63:0] $end
+$var wire 32 0 result_32 [31:0] $end
+$var wire 16 1 result_16 [15:0] $end
+$var wire 8 2 result [7:0] $end
+$var wire 1 3 carryout_64 $end
+$var wire 1 4 carryout_32 $end
+$var wire 1 5 carryout_16 $end
+$var wire 1 6 carryout $end
+$var reg 8 7 A [7:0] $end
+$var reg 16 8 A_16 [15:0] $end
+$var reg 32 9 A_32 [31:0] $end
+$var reg 64 : A_64 [63:0] $end
+$var reg 8 ; B [7:0] $end
+$var reg 16 < B_16 [15:0] $end
+$var reg 32 = B_32 [31:0] $end
+$var reg 64 > B_64 [63:0] $end
+$var reg 1 ? clk $end
+$var reg 8 @ expected_result [7:0] $end
+$var reg 1 A reset $end
+$var integer 32 B failedTests [31:0] $end
+$var integer 32 C totalTests [31:0] $end
+$scope module BitAdder16 $end
+$var wire 16 D A [15:0] $end
+$var wire 16 E B [15:0] $end
+$var wire 1 F carryin $end
+$var reg 1 5 carryout $end
+$var reg 16 G result [15:0] $end
+$upscope $end
+$scope module BitAdder32 $end
+$var wire 32 H A [31:0] $end
+$var wire 32 I B [31:0] $end
+$var wire 1 J carryin $end
+$var reg 1 4 carryout $end
+$var reg 32 K result [31:0] $end
+$upscope $end
+$scope module BitAdder64 $end
+$var wire 64 L A [63:0] $end
+$var wire 64 M B [63:0] $end
+$var wire 1 N carryin $end
+$var reg 1 3 carryout $end
+$var reg 64 O result [63:0] $end
+$upscope $end
+$scope module BitAdder8 $end
+$var wire 8 P A [7:0] $end
+$var wire 8 Q B [7:0] $end
+$var wire 1 R carryin $end
+$var reg 1 6 carryout $end
+$var reg 8 S result [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx S
+zR
+bx Q
+bx P
+bx O
+zN
+bx M
+bx L
+bx K
+zJ
+bx I
+bx H
+bx G
+zF
+bx E
+bx D
+b0 C
+b0 B
+1A
+bx @
+0?
+bx >
+bx =
+bx <
+bx ;
+bx :
+bx 9
+bx 8
+bx 7
+x6
+x5
+x4
+x3
+bx 2
+bx 1
+bx 0
+bx /
+bx .
+x-
+bz ,
+x+
+bz *
+x)
+bz (
+x'
+x&
+x%
+bx $
+z#
+z"
+z!
+$end
+#50000
+1?
+#100000
+0A
+0?
+#150000
+1?
+#160000
+b0 @
+b0 ;
+b0 Q
+b0 7
+b0 P
+b1 C
+#200000
+0?
+#250000
+1?
+#260000
+b1 B
+#270000
+b1 ;
+b1 Q
+b11111111 7
+b11111111 P
+b10 C
+#300000
+0?
+#350000
+1?
+#370000
+b10 B
+#380000
+b10110 @
+b1011 ;
+b1011 Q
+b1011 7
+b1011 P
+b11 C
+#400000
+0?
+#450000
+1?
+#480000
+b11 B
+#490000
+b111001 @
+b1100100 ;
+b1100100 Q
+b11010101 7
+b11010101 P
+b100 C
+#500000
+0?
+#550000
+1?
+#590000
+b100 B
+#600000
+b0 @
+b1 ;
+b1 Q
+b11111111 7
+b11111111 P
+b101 C
+0?
+#650000
+1?
+#700000
+0?
+b101 B
+#710000
+b110 C
+#750000
+1?
+#800000
+0?
+#810000
+b110 B
+#820000
+b111 C
+#850000
+1?
+#900000
+0?
+#920000
+b111 B
+#930000
