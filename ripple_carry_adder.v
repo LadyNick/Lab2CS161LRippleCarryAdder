@@ -49,6 +49,7 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
 
     always @(*) begin
         result <= result_ripple;
+        carryout <= carryout_ripple[NUMBITS-1];
     end
 
 endmodule
